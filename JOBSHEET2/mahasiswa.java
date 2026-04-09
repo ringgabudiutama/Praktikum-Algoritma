@@ -7,11 +7,23 @@ public class mahasiswa {
     String kelas;
     double ipk;
 
+    // Default constructor
+    public mahasiswa() {
+    }
+
+    // Parameterized constructor
+    public mahasiswa(String nama, String nim, double ipk, String kelas) {
+        this.nama = nama;
+        this.nim = nim;
+        this.ipk = ipk;
+        this.kelas = kelas;
+    }
+
     void tampilkanInformasi() {
-        System.out.println("NIM  : " + nim);
-        System.out.println("Nama : " + nama);
-        System.out.println("IPK  : " + ipk);
-        System.out.println("Kelas: " + kelas);
+        System.out.println("Nama  : " + nama);
+        System.out.println("NIM   : " + nim);
+        System.out.println("IPK   : " + ipk);
+        System.out.println("Kelas : " + kelas);
     }
 
     void ubahKelas(String kelasBaru) {
@@ -19,7 +31,11 @@ public class mahasiswa {
     }
 
     void updateIpk(double ipkBaru) {
-        ipk = ipkBaru;
+        if (ipkBaru >= 0.0 && ipkBaru <= 4.0) {
+            ipk = ipkBaru;
+        } else {
+            System.out.println("GPA is invalid. Must be between 0.0 and 4.0");
+        }
     }
 
     String nilaiKinerja() {
@@ -32,24 +48,5 @@ public class mahasiswa {
         } else {
             return "Kinerja kurang";
         }
-    }
-
-    public static void main(String[] args) {
-        mahasiswa mhs = new mahasiswa();
-
-        mhs.nim = "123456";
-        mhs.nama = "Budi";
-        mhs.kelas = "TI-1A";
-        mhs.ipk = 3.4;
-
-        mhs.tampilkanInformasi();
-        System.out.println("Nilai Kinerja: " + mhs.nilaiKinerja());
-
-        mhs.ubahKelas("TI-1B");
-        mhs.updateIpk(3.7);
-
-        System.out.println("\nSetelah Update:");
-        mhs.tampilkanInformasi();
-        System.out.println("Nilai Kinerja: " + mhs.nilaiKinerja());
     }
 }
