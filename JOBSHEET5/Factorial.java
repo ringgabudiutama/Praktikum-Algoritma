@@ -1,7 +1,6 @@
 package JOBSHEET5;
 
 import java.util.Scanner;
-
 public class Factorial {
 
     // Brute Force Method
